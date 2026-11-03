@@ -34,7 +34,29 @@ async function catatGagal(ref) {
   }
 }
 
+// Alamat web yang boleh memanggil fungsi ini dari browser.
+const ORIGIN_DIIZINKAN = [
+  "https://rizkydigital.web.app",
+  "https://rizkydigital.firebaseapp.com",
+  "https://rizkydigital.vercel.app",
+];
+
+function atur_cors(req, res) {
+  const origin = req.headers.origin;
+  if (ORIGIN_DIIZINKAN.includes(origin)) {
+    res.setHeader("Access-Control-Allow-Origin", origin);
+    res.setHeader("Vary", "Origin");
+    res.setHeader("Access-Control-Allow-Methods", "POST, OPTIONS");
+    res.setHeader("Access-Control-Allow-Headers", "Content-Type");
+  }
+}
+
 module.exports = async (req, res) => {
+  atur_cors(req, res);
+  if (req.method === "OPTIONS") {
+    return res.status(204).end();
+  }
+
   if (req.method !== "POST") {
     return res.status(405).json({ error: "Metode tidak diizinkan." });
   }
