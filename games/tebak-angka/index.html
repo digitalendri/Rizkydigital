@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tebak Angka</title>
+  <style>
+    body {
+      font-family: system-ui, sans-serif;
+      background: #0f172a;
+      color: #e2e8f0;
+      display: flex;
+      justify-content: center;
+      padding: 40px 16px;
+    }
+    .box { max-width: 360px; width: 100%; text-align: center; }
+    input {
+      width: 100%;
+      padding: 12px;
+      font-size: 1.2rem;
+      border-radius: 8px;
+      border: none;
+      text-align: center;
+      margin: 12px 0;
+    }
+    button {
+      padding: 10px 20px;
+      border: none;
+      border-radius: 8px;
+      background: #38bdf8;
+      color: #0f172a;
+      font-weight: 600;
+      cursor: pointer;
+      margin: 4px;
+    }
+    #pesan { min-height: 2em; margin-top: 12px; }
+    a { color: #38bdf8; }
+  </style>
+</head>
+<body>
+  <div class="box">
+    <h1>Tebak Angka</h1>
+    <p>Aku memilih angka antara 1 dan 100. Bisa kamu tebak?</p>
+    <input id="tebakan" type="number" min="1" max="100" placeholder="Masukkan tebakan">
+    <div>
+      <button onclick="tebak()">Tebak</button>
+      <button onclick="mulaiBaru()">Main Lagi</button>
+    </div>
+    <p id="pesan"></p>
+    <p>Percobaan: <span id="jumlah">0</span></p>
+    <p><a href="../../games.html">&larr; Kembali ke daftar game</a></p>
+  </div>
+
+  <script>
+    let rahasia, percobaan;
+
+    function mulaiBaru() {
+      rahasia = Math.floor(Math.random() * 100) + 1;
+      percobaan = 0;
+      document.getElementById("jumlah").textContent = 0;
+      document.getElementById("pesan").textContent = "";
+      document.getElementById("tebakan").value = "";
+    }
+
+    function tebak() {
+      const input = document.getElementById("tebakan");
+      const angka = parseInt(input.value, 10);
+      const pesan = document.getElementById("pesan");
+
+      if (isNaN(angka) || angka < 1 || angka > 100) {
+        pesan.textContent = "Masukkan angka 1 sampai 100.";
+        return;
+      }
+
+      percobaan++;
+      document.getElementById("jumlah").textContent = percobaan;
+
+      if (angka === rahasia) {
+        pesan.textContent = "Benar! Kamu menebak dalam " + percobaan + " percobaan.";
+      } else if (angka < rahasia) {
+        pesan.textContent = "Terlalu kecil, coba lebih besar.";
+      } else {
+        pesan.textContent = "Terlalu besar, coba lebih kecil.";
+      }
+      input.select();
+    }
+
+    document.getElementById("tebakan").addEventListener("keydown", function (e) {
+      if (e.key === "Enter") tebak();
+    });
+
+    mulaiBaru();
+  </script>
+</body>
+</html>
