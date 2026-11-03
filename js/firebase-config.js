@@ -1,9 +1,7 @@
-// Isi dengan konfigurasi web app dari Firebase Console:
-// Project settings -> General -> Your apps -> Web app -> Config.
-// Nilai-nilai ini memang boleh terlihat publik.
+// Konfigurasi web app Firebase (aman terlihat publik).
 export const firebaseConfig = {
-  apiKey: "ISI_DI_SINI",
+  apiKey: "AIzaSyBvw4WEOTgiIZA9t6JGGUHesaCR69w8vDE",
   authDomain: "rizkydigital.firebaseapp.com",
   projectId: "rizkydigital",
-  appId: "ISI_DI_SINI",
+  appId: "1:996118897474:web:9dfeef8c55133833cf1edb",
 };
