@@ -4,6 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Tebak Angka</title>
+  <style>html { visibility: hidden; }</style>
+  <script type="module" src="/js/auth-guard.js"></script>
   <style>
     body {
       font-family: system-ui, sans-serif;
@@ -48,7 +50,10 @@
     </div>
     <p id="pesan"></p>
     <p>Percobaan: <span id="jumlah">0</span></p>
-    <p><a href="../../games.html">&larr; Kembali ke daftar game</a></p>
+    <p>
+      <a href="../../games.html">&larr; Kembali ke daftar game</a> ·
+      <a href="#" id="btn-keluar">Keluar</a>
+    </p>
   </div>
 
   <script>
