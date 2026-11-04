@@ -1,9 +1,17 @@
-// Fungsi server Vercel: memberi daftar file unduhan (link Google Drive)
-// hanya kepada pengguna yang login dan punya izin.
+// Fungsi server Vercel: memberi daftar file (katalog) hanya kepada pengguna
+// yang login dan punya izin. Link Google Drive asli TIDAK dikirim ke browser.
 // Data ada di Firestore, koleksi "files". Field tiap dokumen:
-//   judul (string), deskripsi (string, opsional), link (string, harus https://),
+//   judul (string), deskripsi (string, opsional),
+//   cover (string https, opsional), preview (array string https, opsional),
+//   linkBayar (string https, link.id dsb.),
 //   izin ("file" atau "game"), aktif (boolean, opsional), urutan (angka, opsional)
+//   link (link Drive asli) boleh tetap disimpan di Firestore untuk arsipmu,
+//   tapi tidak pernah dikirim lewat API ini.
 const { admin, db, aturCors } = require("./_firebase");
+
+function https(x) {
+  return typeof x === "string" && x.startsWith("https://");
+}
 
 module.exports = async (req, res) => {
   aturCors(req, res);
@@ -44,13 +52,15 @@ module.exports = async (req, res) => {
       const izin = d.izin === "game" ? "game" : "file";
       if (!adalahAdmin && !akses.includes(izin)) return;
 
-      if (typeof d.link !== "string" || !d.link.startsWith("https://")) return;
-
       hasil.push({
         id: doc.id,
         judul: d.judul || doc.id,
         deskripsi: d.deskripsi || "",
-        link: d.link,
+        cover: https(d.cover) ? d.cover : "",
+        preview: Array.isArray(d.preview)
+          ? d.preview.filter(https).slice(0, 20)
+          : [],
+        linkBayar: https(d.linkBayar) ? d.linkBayar : "",
         izin,
         urutan: typeof d.urutan === "number" ? d.urutan : 9999,
       });
