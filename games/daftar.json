@@ -1,0 +1,11 @@
+[
+  {
+    "id": "tebak-angka",
+    "judul": "Tebak Angka",
+    "deskripsi": "Tebak angka 1-100 dengan petunjuk lebih besar atau lebih kecil.",
+    "link": "games/tebak-angka/index.html",
+    "cover": "",
+    "preview": [],
+    "linkBayar": ""
+  }
+]
