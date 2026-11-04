@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Akun saya - Webku</title>
+  <style>html { visibility: hidden; }</style>
+  <script type="module" src="/js/auth-guard.js"></script>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header>
+    <h1>Webku</h1>
+    <nav>
+      <a href="index.html">Beranda</a>
+      <a href="#" id="btn-keluar">Keluar</a>
+    </nav>
+  </header>
+
+  <main>
+    <h2>Akun saya</h2>
+    <pre id="info">Memuat...</pre>
+  </main>
+
+  <script>
+    function tampil() {
+      const k = window.webku.klaim;
+      document.getElementById("info").textContent =
+        "label : " + (k.label || "-") + "\n" +
+        "role  : " + (k.role || "(kosong)") + "\n" +
+        "akses : " + JSON.stringify(k.akses || []);
+    }
+    if (window.webku) tampil();
+    else window.addEventListener("webku-siap", tampil);
+  </script>
+</body>
+</html>
