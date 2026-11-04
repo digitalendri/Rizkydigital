@@ -13,8 +13,8 @@
     <h1>Webku</h1>
     <nav>
       <a href="index.html">Beranda</a>
-      <a href="games.html">Game</a>
-      <a href="files.html">File</a>
+      <a href="games.html" data-izin="game">Game</a>
+      <a href="files.html" data-izin="file game">File</a>
       <a href="#" id="btn-keluar">Keluar</a>
     </nav>
   </header>
@@ -24,8 +24,12 @@
       <h2>Selamat datang!</h2>
       <p>Mainkan game langsung di browser atau unduh file yang tersedia.</p>
       <p>
-        <a class="btn" href="games.html">Main Game</a>
-        <a class="btn btn-alt" href="files.html">Lihat File</a>
+        <a class="btn" href="games.html" data-izin="game">Main Game</a>
+        <a class="btn btn-alt" href="files.html" data-izin="file game">Lihat File</a>
+      </p>
+      <p id="tanpa-izin" hidden>
+        Kodemu belum punya izin untuk fitur apa pun. Coba keluar lalu masuk lagi,
+        atau hubungi pemilik web.
       </p>
     </section>
   </main>
