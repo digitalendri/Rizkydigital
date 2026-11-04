@@ -7,33 +7,82 @@
   <style>html { visibility: hidden; }</style>
   <script type="module" src="/js/auth-guard.js"></script>
   <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/kartu.css">
+  <script src="js/toko.js"></script>
 </head>
 <body>
   <header>
     <h1>Webku</h1>
     <nav>
       <a href="index.html">Beranda</a>
-      <a href="games.html" data-izin="game">Game</a>
-      <a href="files.html" data-izin="file game">File</a>
+      <a href="#bagian-game" data-izin="game">Game</a>
+      <a href="#bagian-file" data-izin="file game">File</a>
       <a href="#" id="btn-keluar">Keluar</a>
     </nav>
   </header>
 
-  <main>
-    <section class="hero">
+  <main class="lebar">
+    <section class="hero ringkas">
       <h2>Selamat datang!</h2>
-      <p>Mainkan game langsung di browser atau unduh file yang tersedia.</p>
-      <p>
-        <a class="btn" href="games.html" data-izin="game">Main Game</a>
-        <a class="btn btn-alt" href="files.html" data-izin="file game">Lihat File</a>
-      </p>
+      <p>Coba demo game langsung di browser, atau lihat preview file yang tersedia.</p>
       <p id="tanpa-izin" hidden>
         Kodemu belum punya izin untuk fitur apa pun. Coba keluar lalu masuk lagi,
         atau hubungi pemilik web.
       </p>
     </section>
+
+    <section class="bagian" id="bagian-game" data-izin="game">
+      <h2>Game</h2>
+      <p class="kosong" id="status-game">Memuat game...</p>
+      <div class="grid-kartu" id="grid-game"></div>
+    </section>
+
+    <section class="bagian" id="bagian-file" data-izin="file game">
+      <h2>File</h2>
+      <p class="kosong" id="status-file">Memuat file...</p>
+      <div class="grid-kartu" id="grid-file"></div>
+    </section>
   </main>
 
   <footer>&copy; 2026 Webku</footer>
+
+  <script>
+    function detailHref(tipe, id) {
+      return "detail.html?tipe=" + tipe + "&id=" + encodeURIComponent(id);
+    }
+
+    async function muatGame() {
+      const status = document.getElementById("status-game");
+      const grid = document.getElementById("grid-game");
+      try {
+        const games = await ambilGame();
+        status.textContent = games.length ? "" : "Belum ada game.";
+        games.forEach((g) => grid.appendChild(buatKotak(g, detailHref("game", g.id))));
+      } catch (err) {
+        status.textContent = err.message;
+      }
+    }
+
+    async function muatFile() {
+      const status = document.getElementById("status-file");
+      const grid = document.getElementById("grid-file");
+      try {
+        const files = await ambilFile();
+        status.textContent = files.length ? "" : "Belum ada file untukmu.";
+        files.forEach((f) => grid.appendChild(buatKotak(f, detailHref("file", f.id))));
+      } catch (err) {
+        status.textContent = err.message;
+      }
+    }
+
+    function mulai() {
+      const klaim = window.webku.klaim;
+      if (punya(klaim, "game")) muatGame();
+      if (punya(klaim, "file") || punya(klaim, "game")) muatFile();
+    }
+
+    if (window.webku) mulai();
+    else window.addEventListener("webku-siap", mulai);
+  </script>
 </body>
 </html>
