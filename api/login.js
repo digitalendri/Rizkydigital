@@ -1,20 +1,15 @@
 // Fungsi server Vercel: menukar kode undangan dengan token login Firebase.
 // Kode disimpan di Firestore, koleksi "codes", ID dokumen = kodenya.
-const admin = require("firebase-admin");
+// Field dokumen: active (boolean), label (string), role ("admin" / "tamu"),
+// akses (array, isi "game" dan/atau "file", dipakai untuk role "tamu"),
+// maxUses (angka, opsional), expiresAt (timestamp, opsional).
+const { admin, db, aturCors } = require("./_firebase");
 
-if (!admin.apps.length) {
-  admin.initializeApp({
-    credential: admin.credential.cert(
-      JSON.parse(process.env.FIREBASE_SERVICE_ACCOUNT)
-    ),
-  });
-}
-
-const db = admin.firestore();
 const FieldValue = admin.firestore.FieldValue;
 
 const MAX_GAGAL = 10; // gagal maksimal per IP
 const JENDELA = 60 * 60 * 1000; // dalam 1 jam
+const AKSES_VALID = ["game", "file"];
 
 async function terlaluBanyak(ref) {
   const snap = await ref.get();
@@ -34,25 +29,20 @@ async function catatGagal(ref) {
   }
 }
 
-// Alamat web yang boleh memanggil fungsi ini dari browser.
-const ORIGIN_DIIZINKAN = [
-  "https://rizkydigital.web.app",
-  "https://rizkydigital.firebaseapp.com",
-  "https://rizkydigital.vercel.app",
-];
-
-function atur_cors(req, res) {
-  const origin = req.headers.origin;
-  if (ORIGIN_DIIZINKAN.includes(origin)) {
-    res.setHeader("Access-Control-Allow-Origin", origin);
-    res.setHeader("Vary", "Origin");
-    res.setHeader("Access-Control-Allow-Methods", "POST, OPTIONS");
-    res.setHeader("Access-Control-Allow-Headers", "Content-Type");
+// Menentukan peran dan izin dari dokumen kode.
+// Tanpa role "admin", izin hanya yang tertulis di field akses (bawaan: kosong).
+function tentukanIzin(d) {
+  if (d.role === "admin") {
+    return { role: "admin", akses: AKSES_VALID.slice() };
   }
+  const akses = Array.isArray(d.akses)
+    ? d.akses.filter((x) => AKSES_VALID.includes(x))
+    : [];
+  return { role: "tamu", akses };
 }
 
 module.exports = async (req, res) => {
-  atur_cors(req, res);
+  aturCors(req, res);
   if (req.method === "OPTIONS") {
     return res.status(204).end();
   }
@@ -113,10 +103,13 @@ module.exports = async (req, res) => {
       return res.status(401).json({ error: "Kode tidak valid." });
     }
 
+    const izin = tentukanIzin(hasil);
     const token = await admin
       .auth()
       .createCustomToken("kode_" + kode.toLowerCase(), {
         label: hasil.label || "",
+        role: izin.role,
+        akses: izin.akses,
       });
 
     await attemptRef.delete().catch(() => {});
