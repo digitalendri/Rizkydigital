@@ -1,55 +1,42 @@
 # Webku
 
-Web sederhana berisi game yang bisa dimainkan di browser dan file yang bisa diunduh.
-Dihosting di Firebase Hosting, kodenya disimpan di GitHub.
+Katalog publik berisi demo game dan file. Tombol beli/unduh mengarah ke Lynk.id.
+Dihosting di Firebase Hosting, kodenya di GitHub, dan setiap commit ke `main` otomatis ter-deploy.
 
 ## Struktur
 
 ```
-webku/
-├── firebase.json        konfigurasi Firebase Hosting
-├── public/              semua file yang tampil di web
-│   ├── index.html
-│   ├── games.html
-│   ├── files.html
-│   ├── css/style.css
-│   ├── games/           satu folder per game
-│   └── downloads/       file yang bisa diunduh
-└── .gitignore
+index.html          beranda: kartu Game dan File
+detail.html         halaman detail satu produk (galeri preview + tombol)
+produk.json         DAFTAR PRODUK (satu-satunya yang perlu diedit untuk menambah produk)
+css/                style.css, kartu.css, detail.css
+js/toko.js          fungsi bersama
+games/<nama>/       file demo tiap game (harus ada index.html)
+img/                gambar cover dan preview (opsional)
+firebase.json       pengaturan Firebase Hosting
+.github/workflows/  deploy otomatis
 ```
 
-## Menjalankan di komputer
+## Menambah produk
 
-Buka folder `public` dengan ekstensi Live Server di VS Code, atau jalankan:
+Buka `produk.json`, salin satu blok `{ ... }`, lalu ubah isinya:
 
-```
-npx serve public
-```
+| Field | Isi |
+|---|---|
+| `id` | nama pendek tanpa spasi, huruf kecil, unik (contoh `mewarnai-hewan`) |
+| `tipe` | `"game"` atau `"file"` |
+| `judul`, `deskripsi` | teks yang tampil |
+| `cover` | gambar sampul: `"img/nama.webp"` atau link `https://...` (boleh dikosongkan) |
+| `preview` | daftar gambar preview, contoh `["img/a.webp", "img/b.webp"]` |
+| `harga` | teks harga, contoh `"Rp 25.000"` (boleh dikosongkan) |
+| `linkBayar` | link produk di Lynk.id (`https://lynk.id/...`) |
+| `link` | khusus game: alamat demo, contoh `"games/tebak-angka/index.html"` |
+| `urutan` | angka urutan tampil, makin kecil makin atas (opsional) |
+| `aktif` | isi `false` untuk menyembunyikan tanpa menghapus (opsional) |
 
-## Deploy ke Firebase
+Link Google Drive aslinya sengaja **tidak** disimpan di sini. Simpan hanya di dalam produk Lynk.id.
 
-```
-npm install -g firebase-tools
-firebase login
-firebase init hosting     # pilih proyek Firebase-mu, folder public = public, SPA = No
-firebase deploy
-```
+## Menambah demo game
 
-Webmu akan online di `https://NAMA-PROYEK.web.app`.
-
-## Simpan ke GitHub
-
-```
-git init
-git add .
-git commit -m "Versi awal"
-git branch -M main
-git remote add origin https://github.com/USERNAME/webku.git
-git push -u origin main
-```
-
-## Menambah game baru
-
-1. Buat folder `public/games/nama-game/` dan taruh file game di dalamnya (harus ada `index.html`).
-2. Salin satu blok `.card` di `public/games.html` dan sesuaikan nama serta link-nya.
-3. Untuk tombol unduh, kemas folder game jadi `.zip` dan taruh di `public/downloads/`.
+1. Taruh file game di `games/<nama>/` (harus ada `index.html`).
+2. Tambah entri `tipe: "game"` di `produk.json` dengan `link` ke `games/<nama>/index.html`.

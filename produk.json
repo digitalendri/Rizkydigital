@@ -1,0 +1,25 @@
+[
+  {
+    "id": "tebak-angka",
+    "tipe": "game",
+    "judul": "Tebak Angka",
+    "deskripsi": "Tebak angka 1-100 dengan petunjuk lebih besar atau lebih kecil.",
+    "link": "games/tebak-angka/index.html",
+    "cover": "",
+    "preview": [],
+    "harga": "",
+    "linkBayar": "",
+    "urutan": 1
+  },
+  {
+    "id": "mewarnai",
+    "tipe": "file",
+    "judul": "Mewarnai",
+    "deskripsi": "",
+    "cover": "",
+    "preview": [],
+    "harga": "",
+    "linkBayar": "",
+    "urutan": 2
+  }
+]

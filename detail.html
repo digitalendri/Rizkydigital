@@ -4,26 +4,23 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Detail - Webku</title>
-  <style>html { visibility: hidden; }</style>
-  <script type="module" src="/js/auth-guard.js"></script>
-  <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="css/kartu.css">
-  <link rel="stylesheet" href="css/detail.css">
-  <script src="js/toko.js"></script>
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/kartu.css">
+  <link rel="stylesheet" href="/css/detail.css">
+  <script src="/js/toko.js"></script>
 </head>
 <body>
   <header>
     <h1>Webku</h1>
     <nav>
-      <a href="index.html">Beranda</a>
-      <a href="index.html#bagian-game" data-izin="game">Game</a>
-      <a href="index.html#bagian-file" data-izin="file game">File</a>
-      <a href="#" id="btn-keluar">Keluar</a>
+      <a href="/index.html">Beranda</a>
+      <a href="/index.html#bagian-game">Game</a>
+      <a href="/index.html#bagian-file">File</a>
     </nav>
   </header>
 
   <main class="lebar">
-    <a class="kembali" href="index.html">&larr; Kembali</a>
+    <a class="kembali" href="/index.html">&larr; Kembali</a>
     <p class="kosong" id="status">Memuat...</p>
     <div id="isi"></div>
   </main>
@@ -69,6 +66,13 @@
       const h = document.createElement("h2");
       h.textContent = item.judul;
       teks.appendChild(h);
+
+      if (item.harga) {
+        const harga = document.createElement("p");
+        harga.className = "harga";
+        harga.textContent = item.harga;
+        teks.appendChild(harga);
+      }
       if (item.deskripsi) {
         const p = document.createElement("p");
         p.className = "deskripsi";
@@ -79,14 +83,16 @@
       const aksi = document.createElement("div");
       aksi.className = "aksi";
       if (tipe === "game") {
-        const demo = document.createElement("a");
-        demo.className = "btn";
-        demo.textContent = "Main Demo";
-        demo.href = item.link;
-        aksi.appendChild(demo);
+        if (linkDemo(item.link)) {
+          const demo = document.createElement("a");
+          demo.className = "btn";
+          demo.textContent = "Main Demo";
+          demo.href = item.link.indexOf("https://") === 0 ? item.link : "/" + item.link;
+          aksi.appendChild(demo);
+        }
         aksi.appendChild(tombol("Unduh Versi Lengkap", item.linkBayar, true));
       } else {
-        aksi.appendChild(tombol("Unduh", item.linkBayar));
+        aksi.appendChild(tombol("Beli / Unduh", item.linkBayar));
       }
       teks.appendChild(aksi);
 
@@ -95,18 +101,18 @@
       isi.appendChild(detail);
 
       const preview = Array.isArray(item.preview) ? item.preview : [];
-      if (preview.length) {
+      const lembarAda = preview.filter((u) => ubahGambar(u, 400));
+      if (lembarAda.length) {
         const galeri = document.createElement("section");
         galeri.className = "galeri";
         const h3 = document.createElement("h3");
         h3.textContent = "Preview";
         const grid = document.createElement("div");
         grid.className = "grid-preview";
-        preview.forEach((url) => {
+        lembarAda.forEach((url) => {
           const lembar = document.createElement("div");
           lembar.className = "lembar";
-          const img = pasangGambar(lembar, url, 400);
-          if (!img) return;
+          pasangGambar(lembar, url, 400);
           lembar.addEventListener("click", () => {
             const lb = document.getElementById("lightbox");
             lb.querySelector("img").src = ubahGambar(url, 1600);
@@ -123,17 +129,8 @@
     async function mulai() {
       const status = document.getElementById("status");
       try {
-        const klaim = window.webku.klaim;
-        let item;
-        if (tipe === "game") {
-          if (!punya(klaim, "game")) return location.replace("index.html");
-          item = (await ambilGame()).find((g) => g.id === id);
-        } else {
-          if (!punya(klaim, "file") && !punya(klaim, "game")) {
-            return location.replace("index.html");
-          }
-          item = (await ambilFile()).find((f) => f.id === id);
-        }
+        const semua = tipe === "game" ? await ambilGame() : await ambilFile();
+        const item = semua.find((p) => p.id === id);
         if (!item) throw new Error("Item tidak ditemukan.");
         status.textContent = "";
         tampilkan(item);
@@ -146,8 +143,7 @@
       e.currentTarget.classList.remove("buka");
     });
 
-    if (window.webku) mulai();
-    else window.addEventListener("webku-siap", mulai);
+    mulai();
   </script>
 </body>
 </html>
