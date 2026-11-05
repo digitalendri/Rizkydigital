@@ -1,23 +1,28 @@
 // Fungsi bersama untuk index.html dan detail.html (skrip biasa, bukan module).
-var API = "https://rizkydigital.vercel.app";
+// Semua data katalog dibaca dari produk.json. Tidak ada login dan tidak ada server.
 
 // Link Google Drive -> gambar (file gambar harus dibagikan "Anyone with the link").
+// Alamat lain hanya diterima kalau diawali https:// atau berupa folder img/ di web ini.
 function ubahGambar(url, lebar) {
-  if (!url) return "";
+  if (!url || typeof url !== "string") return "";
   var m = url.match(/\/file\/d\/([\w-]+)/) || url.match(/[?&]id=([\w-]+)/);
   if (m && url.indexOf("drive.google.com") !== -1) {
     return "https://drive.google.com/thumbnail?id=" + m[1] + "&sz=w" + (lebar || 600);
   }
-  return url;
-}
-
-function punya(klaim, izin) {
-  var akses = Array.isArray(klaim.akses) ? klaim.akses : [];
-  return klaim.role === "admin" || akses.indexOf(izin) !== -1;
+  if (url.indexOf("https://") === 0 || /^img\/[\w\-\/.]+$/.test(url)) return url;
+  return "";
 }
 
 function linkAman(url) {
   return typeof url === "string" && url.indexOf("https://") === 0;
+}
+
+// Demo game boleh berupa halaman di folder games/ atau alamat https.
+function linkDemo(url) {
+  return (
+    typeof url === "string" &&
+    (url.indexOf("https://") === 0 || /^games\/[\w\-\/.]+$/.test(url))
+  );
 }
 
 function pasangGambar(wadah, url, lebar) {
@@ -54,24 +59,36 @@ function buatKotak(item, href) {
     meta.textContent = item.deskripsi;
     isi.appendChild(meta);
   }
+  if (item.harga) {
+    var harga = document.createElement("div");
+    harga.className = "harga";
+    harga.textContent = item.harga;
+    isi.appendChild(harga);
+  }
 
   a.appendChild(cover);
   a.appendChild(isi);
   return a;
 }
 
-async function ambilFile() {
-  var token = await window.webku.user.getIdToken();
-  var res = await fetch(API + "/api/files", {
-    headers: { Authorization: "Bearer " + token },
-  });
+async function ambilProduk() {
+  var res = await fetch("/produk.json", { cache: "no-cache" });
+  if (!res.ok) throw new Error("Gagal memuat daftar produk.");
   var data = await res.json();
-  if (!res.ok) throw new Error(data.error || "Gagal memuat daftar file.");
-  return data.files;
+  if (!Array.isArray(data)) return [];
+  return data
+    .filter(function (p) { return p && p.id && p.aktif !== false; })
+    .sort(function (a, b) {
+      var ua = typeof a.urutan === "number" ? a.urutan : 9999;
+      var ub = typeof b.urutan === "number" ? b.urutan : 9999;
+      return ua - ub || String(a.judul).localeCompare(String(b.judul));
+    });
 }
 
 async function ambilGame() {
-  var res = await fetch("games/daftar.json", { cache: "no-cache" });
-  if (!res.ok) throw new Error("Gagal memuat daftar game.");
-  return res.json();
+  return (await ambilProduk()).filter(function (p) { return p.tipe === "game"; });
+}
+
+async function ambilFile() {
+  return (await ambilProduk()).filter(function (p) { return p.tipe !== "game"; });
 }
