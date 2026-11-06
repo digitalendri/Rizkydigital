@@ -108,21 +108,3 @@ footer {
   color: var(--muted);
   padding: 24px;
 }
-
-/* ===== HP: navbar kembali ke atas ===== */
-@media (max-width: 700px) {
-  body { padding-left: 0; }
-
-  header {
-    position: static;
-    width: 100%;
-    height: auto;
-    flex-direction: row;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: space-between;
-    padding: 16px 24px;
-  }
-
-  nav { flex-direction: row; gap: 16px; }
-}
