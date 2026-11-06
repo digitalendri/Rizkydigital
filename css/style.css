@@ -5,14 +5,12 @@
   --muted: #94a3b8;
   --accent: #38bdf8;
   --accent-2: #a78bfa;
-  --sidebar-w: 220px;
 }
 
 * { box-sizing: border-box; }
 
 body {
   margin: 0;
-  padding-left: var(--sidebar-w);
   font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
   background-color: var(--bg);
   background-image:
@@ -25,70 +23,52 @@ body {
   line-height: 1.6;
 }
 
-/* ===== Navbar di samping kiri ===== */
+/* ===== Bagian atas: judul + subjudul (full lebar) ===== */
 header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: var(--sidebar-w);
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 24px;
-  padding: 24px;
-  background: var(--card);
-  overflow-y: auto;
-  z-index: 10;
-  border-right: 1px solid rgba(148, 163, 184, 0.25);
+  text-align: center;
+  padding: 28px 24px 14px;
+  background: rgba(15, 23, 42, 0.92);
 }
 
 header h1 {
+  margin: 0 0 6px;
+  font-size: 2rem;
+}
+
+header p {
   margin: 0;
-  font-size: 1.4rem;
-  width: 100%;
-  padding-bottom: 16px;
-  border-bottom: 1px solid rgba(148, 163, 184, 0.25);
+  color: var(--muted);
 }
 
+/* ===== Navbar di bawah subjudul, menempel di atas saat scroll ===== */
 nav {
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-  width: 100%;
-}
-
-nav a {
-  color: var(--text);
-  text-decoration: none;
-}
-nav a:hover { color: var(--accent); }
-
-/* main penuh selebar area konten, tanpa padding atas,
-   supaya hero bisa menempel ke atas dan ke sidebar */
-main {
-  padding: 0 24px 32px;
-}
-
-/* Hero menempel penuh: atas, kiri (sidebar), dan kanan */
-.hero,
-.hero.ringkas {
   position: sticky;
   top: 0;
-  z-index: 5;
-  margin: 0 -24px 24px;          /* tembus padding main -> full lebar */
-  padding: 20px 24px 22px;
-  text-align: center;
+  z-index: 10;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 4px 24px;
+  padding: 10px 24px 12px;
   background: rgba(15, 23, 42, 0.92);
   border-bottom: 1px solid rgba(148, 163, 184, 0.25);
   -webkit-backdrop-filter: blur(8px);
   backdrop-filter: blur(8px);
 }
 
-/* supaya judul section tidak tertutup hero saat klik menu navbar */
-.bagian { scroll-margin-top: 130px; }
-.hero h2 { font-size: 2rem; margin: 0 0 8px; }
-.hero p { color: var(--muted); margin: 0; }
+nav a {
+  color: var(--text);
+  text-decoration: none;
+  padding: 4px 2px;
+}
+nav a:hover { color: var(--accent); }
+
+main {
+  padding: 24px 24px 32px;
+}
+
+/* supaya judul section tidak tertutup navbar saat klik menu */
+.bagian { scroll-margin-top: 70px; }
 
 .btn {
   display: inline-block;
@@ -138,46 +118,16 @@ footer {
   padding: 24px;
 }
 
-/* ===== Layar kecil (HP): sidebar jadi bar di atas ===== */
-@media (max-width: 768px) {
-  body { padding-left: 0; }
-
-  header {
-    position: static;
-    width: 100%;
-    height: auto;
-    flex-direction: row;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: 12px 20px;
-    padding: 14px 16px;
-    overflow-y: visible;
-    border-right: none;
-    border-bottom: 1px solid rgba(148, 163, 184, 0.25);
-  }
-
-  header h1 {
-    width: auto;
-    padding-bottom: 0;
-    border-bottom: none;
-    font-size: 1.2rem;
-  }
+/* ===== Layar kecil (HP) ===== */
+@media (max-width: 600px) {
+  header { padding: 20px 16px 10px; }
+  header h1 { font-size: 1.6rem; }
 
   nav {
-    flex-direction: row;
-    flex-wrap: wrap;
-    gap: 8px 16px;
-    width: auto;
+    gap: 4px 18px;
+    padding: 8px 16px 10px;
   }
 
-  main { padding: 0 16px 24px; }
-
-  .hero,
-  .hero.ringkas {
-    margin: 0 -16px 20px;
-    padding: 14px 16px 16px;
-  }
-  .hero h2 { font-size: 1.5rem; }
-
-  .bagian { scroll-margin-top: 110px; }
+  main { padding: 20px 16px 24px; }
+  .bagian { scroll-margin-top: 60px; }
 }
