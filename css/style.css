@@ -34,14 +34,22 @@ header {
   background: var(--card);
   overflow-y: auto;
   z-index: 10;
+  border-right: 1px solid rgba(148, 163, 184, 0.25);
 }
 
-header h1 { margin: 0; font-size: 1.4rem; }
+header h1 {
+  margin: 0;
+  font-size: 1.4rem;
+  width: 100%;
+  padding-bottom: 16px;
+  border-bottom: 1px solid rgba(148, 163, 184, 0.25);
+}
 
 nav {
   display: flex;
   flex-direction: column;
   gap: 14px;
+  width: 100%;
 }
 
 nav a {
