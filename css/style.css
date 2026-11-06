@@ -17,7 +17,7 @@ body {
   background-color: var(--bg);
   background-image:
     linear-gradient(rgba(15, 23, 42, 0.65), rgba(15, 23, 42, 0.65)),
-    url("/img/bg.png");
+    url("/img/bg.jpg");
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
@@ -71,7 +71,19 @@ main {
 }
 
 .hero,
-.hero.ringkas { text-align: center; padding: 8px 0 16px; }
+.hero.ringkas {
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  text-align: center;
+  padding: 12px 0 16px;
+  background: rgba(15, 23, 42, 0.85);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+}
+
+/* supaya judul section tidak tertutup hero saat klik menu navbar */
+.bagian { scroll-margin-top: 130px; }
 .hero h2 { font-size: 2rem; margin: 0 0 8px; }
 .hero p { color: var(--muted); }
 
