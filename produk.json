@@ -1,14 +1,14 @@
 [
   {
-    "id": "tebak-angka",
-    "tipe": "game",
-    "judul": "Belajar Perkalian Angka",
-    "deskripsi": "Belajar Perkalian Angka",
+    "id": "Tools",
+    "tipe": "tools",
+    "judul": "Storybook Builder",
+    "deskripsi": "Membuat Storybook jadi lebih mudah",
     "link": "games/tebak-angka/index.html",
-    "cover": "https://drive.google.com/file/d/1Nl_WKJwOQXO8vnOTB-nl1SbPZ5DVyCBd/view?usp=drive_link",
+    "cover": "https://drive.google.com/file/d/1WV7KAcrgZ1GM2sI8HY1-M-iDHJcxrcih/view?usp=drive_link",
     "preview": [],
     "harga": "",
-    "linkBayar": "https://lynk.id/endridigital/y4l26eyz0mj4/checkout",
+    "linkBayar": "",
     "urutan": 1
   },
   {
