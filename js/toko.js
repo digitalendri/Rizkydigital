@@ -85,14 +85,13 @@ async function ambilProduk() {
     });
 }
 
+async function ambilTools() {
+  return (await ambilProduk()).filter(function (p) { return p.tipe === "tools"; });
+}
 async function ambilGame() {
   return (await ambilProduk()).filter(function (p) { return p.tipe === "game"; });
 }
 
 async function ambilFile() {
   return (await ambilProduk()).filter(function (p) { return p.tipe !== "game" && p.tipe !== "tools"; });
-}
-
-async function ambilTools() {
-  return (await ambilProduk()).filter(function (p) { return p.tipe === "tools"; });
 }
