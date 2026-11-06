@@ -36,18 +36,6 @@
     "urutan": 1
   },
   {
-    "id": "tebak-angka",
-    "tipe": "tools",
-    "judul": "Storybook_builder_v2_8",
-    "deskripsi": "Tools untuk membuat storybook.",
-    "link": "games/tebak-angka/index.html",
-    "cover": "https://drive.google.com/file/d/1tVpBfZZGsli0oHD0vckbRCpC_0b119Ps/view?usp=drive_link",
-    "preview": [],
-    "harga": "",
-    "linkBayar": "",
-    "urutan": 1
-  },
-  {
     "id": "mewarnai",
     "tipe": "file",
     "judul": "Mewarnai",
