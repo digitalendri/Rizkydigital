@@ -11,11 +11,12 @@
 </head>
 <body>
   <header>
-    <h1>Webku</h1>
+    <h1>RizkyDigital</h1>
     <nav>
       <a href="/index.html">Beranda</a>
-      <a href="/index.html#bagian-game">Game</a>
-      <a href="/index.html#bagian-file">File</a>
+      <a href="/index.html#bagian-game">Storybook</a>
+      <a href="/index.html#bagian-file">Worksheet</a>
+      <a href="/index.html#bagian-tools">Tools</a>
     </nav>
   </header>
 
@@ -31,7 +32,8 @@
 
   <script>
     const params = new URLSearchParams(location.search);
-    const tipe = params.get("tipe") === "game" ? "game" : "file";
+    const tipeParam = params.get("tipe");
+    const tipe = ["game", "tools"].indexOf(tipeParam) !== -1 ? tipeParam : "file";
     const id = params.get("id") || "";
 
     function tombol(teks, href, alt) {
@@ -91,6 +93,15 @@
           aksi.appendChild(demo);
         }
         aksi.appendChild(tombol("Unduh Versi Lengkap", item.linkBayar, true));
+      } else if (tipe === "tools") {
+        if (linkDemo(item.link)) {
+          const buka = document.createElement("a");
+          buka.className = "btn";
+          buka.textContent = "Coba Tools";
+          buka.href = item.link.indexOf("https://") === 0 ? item.link : "/" + item.link;
+          aksi.appendChild(buka);
+        }
+        aksi.appendChild(tombol("Beli / Unduh", item.linkBayar, true));
       } else {
         aksi.appendChild(tombol("Beli / Unduh", item.linkBayar));
       }
@@ -129,7 +140,10 @@
     async function mulai() {
       const status = document.getElementById("status");
       try {
-        const semua = tipe === "game" ? await ambilGame() : await ambilFile();
+        const semua =
+          tipe === "game" ? await ambilGame() :
+          tipe === "tools" ? await ambilTools() :
+          await ambilFile();
         const item = semua.find((p) => p.id === id);
         if (!item) throw new Error("Item tidak ditemukan.");
         status.textContent = "";
