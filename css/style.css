@@ -85,6 +85,19 @@ main {
 .btn-alt { background: var(--accent-2); }
 .btn:hover { opacity: 0.9; }
 
+/* Tombol "Kembali" di halaman detail */
+.btn-kembali {
+  background: var(--card);
+  color: var(--text);
+  border: 1px solid rgba(148, 163, 184, 0.25);
+  margin: 0 0 20px;
+}
+.btn-kembali:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+  opacity: 1;
+}
+
 .grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
@@ -111,12 +124,6 @@ main {
   margin-bottom: 10px;
 }
 .file-list .meta { color: var(--muted); font-size: 0.85rem; }
-
-footer {
-  text-align: center;
-  color: var(--muted);
-  padding: 24px;
-}
 
 /* ===== Layar kecil (HP) ===== */
 @media (max-width: 600px) {
