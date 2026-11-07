@@ -67,6 +67,8 @@ main {
   padding: 24px 24px 32px;
 }
 
+[hidden] { display: none !important; }
+
 /* supaya judul section tidak tertutup navbar saat klik menu */
 .bagian { scroll-margin-top: 70px; }
 
