@@ -1,21 +1,15 @@
 [
     {
-    "id": "Tools",
-    "tipe": "tools",
-    "judul": "Storybook Builder",
-    "deskripsi": "Sekarang membuat storybook menjadi lebih mudah, dengan bantuan tools ini.
-Kelebihan tools ini:
-1. Bisa dipakai offline ( tanpa internet )
-2. Ukuran file yg dihasilkan kecil
-3. Bisa membuat puluhan lembar dengan cepat
-4. Lisensi boleh dijual kembali
-5. Free call untuk bertanya seputar tools",
-    "cover": "img/cover/Storybookbuilder.jpg",
-    "preview": ["img/preview/satu.jpg", "img/preview/dua.jpg", "img/preview/tiga.jpg", "img/preview/empat.jpg" ],
-    "harga": "75000",
-    "linkBayar": "https://lynk.id/endridigital/kpv9njq39l38",
-    "urutan": 2
-  },
+  "id": "Tools",
+  "tipe": "tools",
+  "judul": "Storybook Builder",
+  "deskripsi": "Sekarang membuat storybook menjadi lebih mudah, dengan bantuan tools ini.\nKelebihan tools ini:\n1. Bisa dipakai offline ( tanpa internet )\n2. Ukuran file yg dihasilkan kecil\n3. Bisa membuat puluhan lembar dengan cepat\n4. Lisensi boleh dijual kembali\n5. Free call untuk bertanya seputar tools",
+  "cover": "img/cover/Storybookbuilder.jpg",
+  "preview": ["img/preview/satu.jpg", "img/preview/dua.jpg", "img/preview/tiga.jpg", "img/preview/empat.jpg"],
+  "harga": "75000",
+  "linkBayar": "https://lynk.id/endridigital/kpv9njq39l38",
+  "urutan": 2
+}
   {
     "id": "Storybook",
     "tipe": "storybook",
