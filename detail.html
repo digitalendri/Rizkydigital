@@ -14,7 +14,7 @@
     <h1>RizkyDigital</h1>
     <nav>
       <a href="/index.html">Beranda</a>
-      <a href="/index.html#bagian-game">Storybook</a>
+      <a href="/index.html#bagian-storybook">Storybook</a>
       <a href="/index.html#bagian-file">Worksheet</a>
       <a href="/index.html#bagian-tools">Tools</a>
     </nav>
@@ -31,7 +31,7 @@
   <script>
     const params = new URLSearchParams(location.search);
     const tipeParam = params.get("tipe");
-    const tipe = ["game", "tools"].indexOf(tipeParam) !== -1 ? tipeParam : "file";
+    const tipe = ["game", "storybook", "tools"].indexOf(tipeParam) !== -1 ? tipeParam : "file";
     const id = params.get("id") || "";
 
     function tombol(teks, href, alt) {
@@ -82,15 +82,15 @@
 
       const aksi = document.createElement("div");
       aksi.className = "aksi";
-      if (tipe === "game") {
+      if (tipe === "game" || tipe === "storybook") {
         if (linkDemo(item.link)) {
           const demo = document.createElement("a");
           demo.className = "btn";
-          demo.textContent = "Main Demo";
+          demo.textContent = tipe === "storybook" ? "Baca Contoh" : "Main Demo";
           demo.href = item.link.indexOf("https://") === 0 ? item.link : "/" + item.link;
           aksi.appendChild(demo);
         }
-        aksi.appendChild(tombol("Unduh Versi Lengkap", item.linkBayar, true));
+        aksi.appendChild(tombol(tipe === "storybook" ? "Beli Storybook" : "Unduh Versi Lengkap", item.linkBayar, true));
       } else if (tipe === "tools") {
         if (linkDemo(item.link)) {
           const buka = document.createElement("a");
@@ -140,6 +140,7 @@
       try {
         const semua =
           tipe === "game" ? await ambilGame() :
+          tipe === "storybook" ? await ambilStorybook() :
           tipe === "tools" ? await ambilTools() :
           await ambilFile();
         const item = semua.find((p) => p.id === id);
