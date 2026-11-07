@@ -35,7 +35,7 @@
     {
     "id": "Belajar Penjumlahan",
     "tipe": "file",
-    "judul": "Perkalian bilangan angka",
+    "judul": "Penjumlahan bilangan angka",
     "deskripsi": "Bermain sambil belajar",
     "cover": "img/cover/Perkalian.jpg",
     "preview": [],
@@ -48,7 +48,7 @@
     "tipe": "file",
     "judul": "Perkalian bilangan angka",
     "deskripsi": "Bermain sambil belajar",
-    "cover": "img/cover/Perkalian.png",
+    "cover": "img/cover/perkalian.png",
     "preview": [],
     "harga": "10.000",
     "linkBayar": "http://lynk.id/endridigital/o0g7j4rgyk1y/checkout",
@@ -57,7 +57,7 @@
   {
     "id": "Belajar Pengurangan",
     "tipe": "file",
-    "judul": "Mewarnai",
+    "judul": "Pengurangan bilangan angka",
     "deskripsi": "Bermain sambil belajar",
     "cover": "http://lynk.id/endridigital/06oklwg14419/checkout",
     "preview": [],
@@ -68,7 +68,7 @@
   {
     "id": "Belajar Pembagian",
     "tipe": "file",
-    "judul": "Mewarnai",
+    "judul": "Pembagian bilangan angka",
     "deskripsi": "Bermain sambil belajar",
     "cover": "http://lynk.id/endridigital/5kg2qyr5rv7r/checkout",
     "preview": [],
