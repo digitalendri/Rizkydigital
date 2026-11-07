@@ -4,22 +4,11 @@
     "tipe": "tools",
     "judul": "Storybook Builder",
     "deskripsi": "Membuat Storybook jadi lebih mudah",
-    "cover": "https://drive.google.com/file/d/1597krvey5FFudHkJp3qza64wpDHai161/view?usp=sharing",
+    "cover": "cover": "img/covers/Storybookbuilder.jpg",
     "preview": [],
     "harga": "10.000",
     "linkBayar": "https://lynk.id/endridigital/y4l26eyz0mj4",
     "urutan": 2
-  },{
-    "id": "Tools",
-    "tipe": "tools",
-    "judul": "Storybook Builder",
-    "deskripsi": "Membuat Storybook jadi lebih mudah",
-    "link": "games/tebak-angka/index.html",
-    "cover": "https://drive.google.com/file/d/1T570Wzve6SFrOMMxFPNv6-NO0trk-qGk/view?usp=sharing",
-    "preview": [],
-    "harga": "",
-    "linkBayar": "",
-    "urutan": 1
   },
   {
     "id": "tebak-angka",
