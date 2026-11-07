@@ -11,27 +11,14 @@
     "urutan": 2
   },
   {
-    "id": "tebak-angka",
-    "tipe": "game",
-    "judul": "Tebak Angka",
-    "deskripsi": "Tebak angka 1-100 dengan petunjuk lebih besar atau lebih kecil.",
-    "link": "games/tebak-angka/index.html",
+    "id": "Storybook",
+    "tipe": "storybook",
+    "judul": "Nabi Ibrahim AS",
+    "deskripsi": "Digital Storybook, kisah Nabi Ibrahim AS",
     "cover": "",
     "preview": [],
-    "harga": "",
-    "linkBayar": "",
-    "urutan": 1
-  },
-  {
-    "id": "tebak-angka",
-    "tipe": "game",
-    "judul": "Tebak Angka",
-    "deskripsi": "Tebak angka 1-100 dengan petunjuk lebih besar atau lebih kecil.",
-    "link": "games/tebak-angka/index.html",
-    "cover": "",
-    "preview": [],
-    "harga": "",
-    "linkBayar": "",
+    "harga": "35000",
+    "linkBayar": "http://lynk.id/endridigital/z3vlm9vm69ew/checkout",
     "urutan": 1
   },
   {
