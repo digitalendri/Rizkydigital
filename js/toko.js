@@ -92,6 +92,13 @@ async function ambilGame() {
   return (await ambilProduk()).filter(function (p) { return p.tipe === "game"; });
 }
 
+// Storybook = tipe "storybook" (produk lama bertipe "game" tetap ikut tampil di sini).
+async function ambilStorybook() {
+  return (await ambilProduk()).filter(function (p) { return p.tipe === "storybook" || p.tipe === "game"; });
+}
+
 async function ambilFile() {
-  return (await ambilProduk()).filter(function (p) { return p.tipe !== "game" && p.tipe !== "tools"; });
+  return (await ambilProduk()).filter(function (p) {
+    return p.tipe !== "game" && p.tipe !== "storybook" && p.tipe !== "tools";
+  });
 }
