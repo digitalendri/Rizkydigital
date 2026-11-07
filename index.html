@@ -59,6 +59,18 @@
       }
     }
 
+    // Filter bagian sesuai menu: #bagian-tools / #bagian-game / #bagian-file
+    // menampilkan satu bagian saja; Beranda (tanpa #) menampilkan semuanya.
+    function terapkanFilter() {
+      const id = location.hash.slice(1);
+      const semua = document.querySelectorAll(".bagian");
+      const ada = Array.prototype.some.call(semua, (s) => s.id === id);
+      semua.forEach((s) => { s.hidden = ada && s.id !== id; });
+      if (ada) window.scrollTo(0, 0);
+    }
+    window.addEventListener("hashchange", terapkanFilter);
+    terapkanFilter();
+
     muat("game", ambilGame, "Belum ada game.");
     muat("file", ambilFile, "Belum ada file.");
     muat("tools", ambilTools, "Belum ada tools.");
