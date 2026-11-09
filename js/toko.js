@@ -92,9 +92,9 @@ async function ambilGame() {
   return (await ambilProduk()).filter(function (p) { return p.tipe === "game"; });
 }
 
-// Storybook = tipe "storybook" (produk lama bertipe "game" tetap ikut tampil di sini).
+// Storybook = hanya tipe "storybook". Game punya section sendiri (ambilGame).
 async function ambilStorybook() {
-  return (await ambilProduk()).filter(function (p) { return p.tipe === "storybook" || p.tipe === "game"; });
+  return (await ambilProduk()).filter(function (p) { return p.tipe === "storybook"; });
 }
 
 async function ambilFile() {
