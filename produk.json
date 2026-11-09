@@ -10,6 +10,18 @@
   "linkBayar": "https://lynk.id/endridigital/kpv9njq39l38",
   "urutan": 2
 },
+    {
+  "id": "game-buah",
+  "tipe": "game",
+  "judul": "Judul Game",
+  "deskripsi": "Deskripsi singkat game",
+  "cover": "img/cover/game-buah.jpg",
+  "preview": [],
+  "harga": "15000",
+  "link": "games/game-buah.html",
+  "linkBayar": "https://lynk.id/endridigital/xxxx",
+  "urutan": 3
+}
   {
     "id": "Storybook",
     "tipe": "storybook",
