@@ -88,7 +88,7 @@
           const demo = document.createElement("a");
           demo.className = "btn";
           demo.textContent = tipe === "storybook" ? "Baca Contoh" : "Main Demo";
-          demo.href = item.link.indexOf("https://") === 0 ? item.link : "/" + item.link;
+          demo.href = "/play.html?tipe=" + tipe + "&id=" + encodeURIComponent(item.id);
           aksi.appendChild(demo);
         }
         aksi.appendChild(tombol(tipe === "storybook" ? "Beli Storybook" : "Unduh Versi Lengkap", item.linkBayar, true));
@@ -97,7 +97,7 @@
           const buka = document.createElement("a");
           buka.className = "btn";
           buka.textContent = "Coba Tools";
-          buka.href = item.link.indexOf("https://") === 0 ? item.link : "/" + item.link;
+          buka.href = "/play.html?tipe=" + tipe + "&id=" + encodeURIComponent(item.id);
           aksi.appendChild(buka);
         }
         aksi.appendChild(tombol("Beli / Unduh", item.linkBayar, true));
