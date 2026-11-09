@@ -19,6 +19,7 @@
     <a href="/index.html">Beranda</a>
     <a href="/index.html#bagian-tools">Tools</a>
     <a href="/index.html#bagian-storybook">Storybook</a>
+    <a href="/index.html#bagian-game">Game</a>
     <a href="/index.html#bagian-file">Worksheet</a>
   </nav>
 
@@ -32,6 +33,12 @@
       <h2>Storybook</h2>
       <p class="kosong" id="status-storybook">Memuat storybook...</p>
       <div class="grid-kartu" id="grid-storybook"></div>
+    </section>
+
+    <section class="bagian" id="bagian-game">
+      <h2>Game</h2>
+      <p class="kosong" id="status-game">Memuat game...</p>
+      <div class="grid-kartu" id="grid-game"></div>
     </section>
 
     <section class="bagian" id="bagian-file">
@@ -59,7 +66,7 @@
       }
     }
 
-    // Filter bagian sesuai menu: #bagian-tools / #bagian-storybook / #bagian-file
+    // Filter bagian sesuai menu: #bagian-tools / #bagian-storybook / #bagian-game / #bagian-file
     // menampilkan satu bagian saja; Beranda (tanpa #) menampilkan semuanya.
     function terapkanFilter() {
       const id = location.hash.slice(1);
@@ -72,6 +79,7 @@
     terapkanFilter();
 
     muat("storybook", ambilStorybook, "Belum ada storybook.");
+    muat("game", ambilGame, "Belum ada game.");
     muat("file", ambilFile, "Belum ada file.");
     muat("tools", ambilTools, "Belum ada tools.");
   </script>
