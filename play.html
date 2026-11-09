@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Memuat... - Webku</title>
+  <link rel="stylesheet" href="/css/style.css">
+  <script src="/js/toko.js"></script>
+  <style>
+    html, body { height: 100%; margin: 0; }
+    body { display: flex; flex-direction: column; overflow: hidden; }
+    .bar-main {
+      flex: 0 0 auto;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 8px 12px;
+      background: #0f172a;
+      color: #e2e8f0;
+      font-family: system-ui, "Trebuchet MS", sans-serif;
+    }
+    .bar-main a {
+      flex: 0 0 auto;
+      background: #fbbf24;
+      color: #0f172a;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 14px;
+      padding: 8px 14px;
+      border-radius: 999px;
+    }
+    .bar-main a.beranda { background: transparent; color: #e2e8f0; border: 1px solid #475569; }
+    .bar-main .judul {
+      flex: 1 1 auto;
+      min-width: 0;
+      font-weight: 700;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    #layar { flex: 1 1 auto; min-height: 0; position: relative; background: #000; }
+    #layar iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; background: #fff; }
+    #pesan { color: #e2e8f0; text-align: center; padding: 32px 16px; font-family: system-ui, sans-serif; }
+  </style>
+</head>
+<body>
+  <div class="bar-main">
+    <a id="kembali" href="/index.html">&larr; Kembali</a>
+    <span class="judul" id="judul"></span>
+    <a class="beranda" href="/index.html">Beranda</a>
+  </div>
+  <div id="layar"><p id="pesan">Memuat...</p></div>
+
+  <script>
+    const params = new URLSearchParams(location.search);
+    const tipeParam = params.get("tipe");
+    const tipe = ["game", "storybook", "tools"].indexOf(tipeParam) !== -1 ? tipeParam : "game";
+    const id = params.get("id") || "";
+
+    // Tombol Kembali -> halaman detail item ini
+    document.getElementById("kembali").href =
+      "/detail.html?tipe=" + tipe + "&id=" + encodeURIComponent(id);
+
+    async function mulai() {
+      const pesan = document.getElementById("pesan");
+      try {
+        const semua =
+          tipe === "storybook" ? await ambilStorybook() :
+          tipe === "tools" ? await ambilTools() :
+          await ambilGame();
+        const item = semua.find((p) => p.id === id);
+        if (!item) throw new Error("Item tidak ditemukan.");
+        if (!linkDemo(item.link)) throw new Error("Demo belum tersedia.");
+
+        document.title = item.judul + " - Webku";
+        document.getElementById("judul").textContent = item.judul;
+
+        const frame = document.createElement("iframe");
+        frame.title = item.judul;
+        frame.allow = "fullscreen";
+        const luar = item.link.indexOf("https://") === 0;
+        if (luar) frame.sandbox = "allow-scripts allow-same-origin allow-forms allow-popups";
+        frame.src = luar ? item.link : "/" + item.link;
+        const layar = document.getElementById("layar");
+        layar.textContent = "";
+        layar.appendChild(frame);
+      } catch (err) {
+        pesan.textContent = err.message;
+      }
+    }
+    mulai();
+  </script>
+</body>
+</html>
