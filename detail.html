@@ -8,16 +8,6 @@
   <link rel="stylesheet" href="/css/kartu.css">
   <link rel="stylesheet" href="/css/detail.css">
   <script src="/js/toko.js"></script>
-  <style>
-    .popup-demo{position:fixed;inset:0;background:rgba(0,0,0,.7);display:none;align-items:center;justify-content:center;z-index:1000;padding:12px}
-    .popup-demo.buka{display:flex}
-    .popup-kotak{width:100%;max-width:520px;height:100%;max-height:900px;background:#fff;border-radius:14px;overflow:hidden;display:flex;flex-direction:column}
-    .popup-atas{display:flex;align-items:center;gap:10px;padding:8px 12px;background:#f3f1ff;font-size:14px}
-    .popup-judul{flex:1;font-weight:600;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-    .popup-tab{font-size:13px}
-    .popup-tutup{border:0;background:#e53935;color:#fff;border-radius:8px;width:34px;height:34px;font-size:16px;cursor:pointer}
-    .popup-kotak iframe{flex:1;width:100%;border:0}
-  </style>
 </head>
 <body>
   <header>
@@ -25,6 +15,7 @@
     <nav>
       <a href="/index.html">Beranda</a>
       <a href="/index.html#bagian-storybook">Storybook</a>
+      <a href="/index.html#bagian-game">Game</a>
       <a href="/index.html#bagian-file">Worksheet</a>
       <a href="/index.html#bagian-tools">Tools</a>
     </nav>
@@ -38,39 +29,11 @@
 
   <div class="lightbox" id="lightbox"><img alt=""></div>
 
-  <div class="popup-demo" id="popupDemo">
-    <div class="popup-kotak">
-      <div class="popup-atas">
-        <span class="popup-judul"></span>
-        <a class="popup-tab" target="_blank" rel="noopener noreferrer">Buka di tab baru</a>
-        <button type="button" class="popup-tutup" aria-label="Tutup">&#10005;</button>
-      </div>
-      <iframe title="Demo game" allow="fullscreen; autoplay"></iframe>
-    </div>
-  </div>
-
   <script>
     const params = new URLSearchParams(location.search);
     const tipeParam = params.get("tipe");
     const tipe = ["game", "storybook", "tools"].indexOf(tipeParam) !== -1 ? tipeParam : "file";
     const id = params.get("id") || "";
-
-    const popupDemo = document.getElementById("popupDemo");
-    const popupFrame = popupDemo.querySelector("iframe");
-
-    function bukaDemo(url, judul) {
-      popupDemo.querySelector(".popup-judul").textContent = judul || "Demo";
-      popupDemo.querySelector(".popup-tab").href = url;
-      popupFrame.src = url;
-      popupDemo.classList.add("buka");
-      document.body.style.overflow = "hidden";
-    }
-
-    function tutupDemo() {
-      popupDemo.classList.remove("buka");
-      popupFrame.src = "about:blank";
-      document.body.style.overflow = "";
-    }
 
     function tombol(teks, href, alt) {
       if (linkAman(href)) {
@@ -125,14 +88,7 @@
           const demo = document.createElement("a");
           demo.className = "btn";
           demo.textContent = tipe === "storybook" ? "Baca Contoh" : "Main Demo";
-          const urlDemo = item.link.indexOf("https://") === 0 ? item.link : "/" + item.link;
-          demo.href = urlDemo;
-          if (tipe === "game") {
-            demo.addEventListener("click", (e) => {
-              e.preventDefault();
-              bukaDemo(urlDemo, item.judul);
-            });
-          }
+          demo.href = item.link.indexOf("https://") === 0 ? item.link : "/" + item.link;
           aksi.appendChild(demo);
         }
         aksi.appendChild(tombol(tipe === "storybook" ? "Beli Storybook" : "Unduh Versi Lengkap", item.linkBayar, true));
@@ -199,14 +155,6 @@
 
     document.getElementById("lightbox").addEventListener("click", (e) => {
       e.currentTarget.classList.remove("buka");
-    });
-
-    popupDemo.querySelector(".popup-tutup").addEventListener("click", tutupDemo);
-    popupDemo.addEventListener("click", (e) => {
-      if (e.target === popupDemo) tutupDemo();
-    });
-    document.addEventListener("keydown", (e) => {
-      if (e.key === "Escape" && popupDemo.classList.contains("buka")) tutupDemo();
     });
 
     mulai();
