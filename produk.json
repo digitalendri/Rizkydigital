@@ -6,7 +6,7 @@
   "deskripsi": "Sekarang membuat storybook menjadi lebih mudah, dengan bantuan tools ini.\nKelebihan tools ini:\n1. Bisa dipakai offline ( tanpa internet )\n2. Ukuran file yg dihasilkan kecil\n3. Bisa membuat puluhan lembar dengan cepat\n4. Lisensi boleh dijual kembali\n5. Free call untuk bertanya seputar tools",
   "cover": "img/cover/Storybookbuilder.jpg",
   "preview": ["img/preview/satu.jpg", "img/preview/dua.jpg", "img/preview/tiga.jpg", "img/preview/empat.jpg"],
-  "harga": "150000",
+  "harga": "150.000",
   "linkBayar": "https://lynk.id/endridigital/kpv9njq39l38",
   "urutan": 2
 },
@@ -18,7 +18,7 @@
   "deskripsi": "Sekarang membuat game menjadi lebih mudah, dengan bantuan tools ini.\nKelebihan tools ini:\n1. Bisa dipakai offline ( tanpa internet )\n2. Ukuran file yg dihasilkan kecil\n3. Bisa membuat puluhan game dengan cepat\n4. Lisensi boleh dijual kembali\n5. Free call untuk bertanya seputar tools",
   "cover": "img/cover/gamebuilder.png",
   "preview": [],
-  "harga": "150000",
+  "harga": "150.000",
   "linkBayar": "https://lynk.id/endridigital/kx9dpd7yl61v",
   "urutan": 2
 },
@@ -29,7 +29,7 @@
   "deskripsi": "Game kuis bergambar untuk mengenal nama-nama buah. 10 soal pilihan ganda, ada bintang di akhir permainan. Seru untuk anak-anak!",
   "cover": "img/cover/covergamebuah.png",
   "preview": [],
-  "harga": "15000",
+  "harga": "20.000",
   "link": "games/tebak-gambar/game-buah-demo.html",
   "linkBayar": "https://lynk.id/endridigital/ddmjz9d045p9",
   "urutan": 3
@@ -41,7 +41,7 @@
   "deskripsi": "game tebak nama hewan. 30 soal pilihan ganda, ada bintang di akhir permainan. Seru untuk anak-anak!",
   "cover": "img/cover/Tebaknamahewan.jpg",
   "preview": [],
-  "harga": "15000",
+  "harga": "20.000",
   "link": "games/tebak-gambar/Tebak-nama-hewan-demo.html",
   "linkBayar": "https://lynk.id/endridigital/o14mrwoyk36m",
   "urutan": 3
@@ -53,7 +53,7 @@
     "deskripsi": "Digital Storybook, kisah Nabi Ibrahim AS",
     "cover": "img/cover/Ibrahim.jpg",
     "preview": [],
-    "harga": "20000",
+    "harga": "20.000",
       "link": "games/storybook/kisah-nabi-ibrahim-AS-demo.html",
     "linkBayar": "https://lynk.id/endridigital/z3vlm9vm69ew",
     "urutan": 1
