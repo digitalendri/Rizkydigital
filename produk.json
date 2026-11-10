@@ -1,7 +1,7 @@
 [
     {
   "id": "storybook-builder",
-  "tipe": "Tools",
+  "tipe": "tools",
   "judul": "Storybook Builder",
   "deskripsi": "Sekarang membuat storybook menjadi lebih mudah, dengan bantuan tools ini.\nKelebihan tools ini:\n1. Bisa dipakai offline ( tanpa internet )\n2. Ukuran file yg dihasilkan kecil\n3. Bisa membuat puluhan lembar dengan cepat\n4. Lisensi boleh dijual kembali\n5. Free call untuk bertanya seputar tools",
   "cover": "img/cover/Storybookbuilder.jpg",
@@ -13,7 +13,7 @@
     
     {
   "id": "game-builder",
-  "tipe": "Tools",
+  "tipe": "tools",
   "judul": "Game Builder",
   "deskripsi": "Sekarang membuat game menjadi lebih mudah, dengan bantuan tools ini.\nKelebihan tools ini:\n1. Bisa dipakai offline ( tanpa internet )\n2. Ukuran file yg dihasilkan kecil\n3. Bisa membuat puluhan game dengan cepat\n4. Lisensi boleh dijual kembali\n5. Free call untuk bertanya seputar tools",
   "cover": "img/cover/gamebuilder.png",
