@@ -80,6 +80,22 @@
         frame.allow = "fullscreen";
         const luar = item.link.indexOf("https://") === 0;
         if (luar) frame.sandbox = "allow-scripts allow-same-origin allow-forms allow-popups";
+
+        // Link bayar otomatis: klik link lynk.id di dalam demo
+        // diarahkan ke "linkBayar" milik item ini di produk.json.
+        // (Hanya jalan untuk demo di folder web ini, bukan alamat https luar.)
+        frame.addEventListener("load", () => {
+          try {
+            frame.contentDocument.addEventListener("click", (e) => {
+              const a = e.target.closest && e.target.closest('a[href^="https://lynk.id"]');
+              if (a && linkAman(item.linkBayar)) {
+                e.preventDefault();
+                window.open(item.linkBayar, "_blank", "noopener");
+              }
+            }, true);
+          } catch (_) {}
+        });
+
         frame.src = luar ? item.link : "/" + item.link;
         const layar = document.getElementById("layar");
         layar.textContent = "";
