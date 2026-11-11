@@ -57,6 +57,18 @@
   "linkBayar": "https://lynk.id/endridigital/o14mrwoyk36m",
   "urutan": 3
 },
+        {
+  "id": "menyusunhuruf",
+  "tipe": "game",
+  "judul": "Menyusun Huruf",
+  "deskripsi": "Belajar makin seru dengan permainan yang menarik, membuat anak-anak bisa bermain sambil belajar. Berisi 30 soal, ada bintang di akhir permainan. Seru untuk anak-anak!",
+  "cover": "img/cover/Tebaknamahewan.jpg",
+  "preview": [],
+  "harga": "20.000",
+  "link": "games/menyusun-huruf/menyusunhuruf-demo.html",
+  "linkBayar": "https://lynk.id/endridigital/6w21kk7v4y1m",
+  "urutan": 3
+},
   {
     "id": "nabi-ibrahim",
     "tipe": "storybook",
