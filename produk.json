@@ -25,8 +25,8 @@
     {
   "id": "gametebakbuah",
   "tipe": "game",
-  "judul": "Tebak Buah (pilihan ganda)",
-  "deskripsi": "Game kuis bergambar untuk mengenal nama-nama buah. 30 soal pilihan ganda, ada bintang di akhir permainan. Seru untuk anak-anak!",
+  "judul": "Tebak Nama Buah (Pilihan Ganda)",
+  "deskripsi": "Game kuis bergambar untuk mengenalkan nama-nama buah kepada anak-anak. berisi 30 soal pilihan ganda, ada bintang di akhir permainan. Seru untuk anak-anak!",
   "cover": "img/cover/covergamebuah.png",
   "preview": [],
   "harga": "20.000",
@@ -37,8 +37,8 @@
     {
   "id": "tebaknamahewan",
   "tipe": "game",
-  "judul": "Tebak nama hewan",
-  "deskripsi": "game tebak nama hewan. 30 soal pilihan ganda, ada bintang di akhir permainan. Seru untuk anak-anak!",
+  "judul": "Tebak Nama Hewan (Pilihan Ganda)",
+  "deskripsi": "Belajar makin seru dengan permainan yang menarik, membuat anak-anak bisa bermain sambil belajar. Berisi 30 nama hewan. 30 soal pilihan ganda, ada bintang di akhir permainan. Seru untuk anak-anak!",
   "cover": "img/cover/Tebaknamahewan.jpg",
   "preview": [],
   "harga": "20.000",
