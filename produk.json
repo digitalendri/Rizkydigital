@@ -68,6 +68,17 @@
   "linkBayar": "https://lynk.id/endridigital/9qyvq869qkq9",
   "urutan": 2
 },
+            {
+  "id": "Paket-all-in-one",
+  "tipe": "tools",
+  "judul": "All in One",
+  "deskripsi": "Paket all in one :\n- tools:\n1. - games\n2. - storybook\n3. - worksheet\n4. Lisensi boleh dijual kembali\n5. Free call untuk bertanya seputar tools",
+  "cover": "img/cover/allinone.jpg",
+  "preview": [],
+  "harga": "250.000",
+  "linkBayar": "https://lynk.id/endridigital/42we4emw1j2w",
+  "urutan": 2
+},
   {
     "id": "nabi-ibrahim",
     "tipe": "storybook",
