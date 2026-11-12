@@ -10,8 +10,8 @@ main.lebar { max-width: 1000px; }
 
 .grid-kartu {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
-  gap: 12px;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 10px;
 }
 
 .kotak {
