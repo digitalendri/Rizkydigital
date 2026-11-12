@@ -50,12 +50,21 @@ main.lebar { max-width: 1000px; }
   object-fit: cover;
 }
 
-.kotak .isi { padding: 14px 16px 16px; }
-.kotak .isi strong { display: block; font-size: 1.05rem; }
+/* Teks kartu: diperkecil supaya seimbang dengan gambar */
+.kotak .isi { padding: 10px 12px 12px; }
+.kotak .isi strong {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  font-size: 0.85rem;
+  line-height: 1.3;
+}
 .kotak .meta {
-  margin-top: 4px;
+  margin-top: 3px;
   color: var(--muted);
-  font-size: 0.88rem;
+  font-size: 0.72rem;
+  line-height: 1.35;
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
@@ -69,5 +78,5 @@ main.lebar { max-width: 1000px; }
   main { padding: 20px 16px; }
   .grid-kartu { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
   .kotak .isi { padding: 10px 12px 12px; }
-  .kotak .isi strong { font-size: 0.95rem; }
+  .kotak .isi strong { font-size: 0.85rem; }
 }
