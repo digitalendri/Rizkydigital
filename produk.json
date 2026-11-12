@@ -6,7 +6,7 @@
   "deskripsi": "Game kuis bergambar untuk mengenalkan nama-nama buah kepada anak-anak. berisi 30 soal pilihan ganda, ada bintang di akhir permainan. Seru untuk anak-anak!",
   "cover": "img/cover/covergamebuah.png",
   "preview": [],
-  "harga": "20.000",
+  "harga": "",
   "link": "games/tebak-gambar/KUIS-MENGENAL-BUAH-BUAHAN-demo.html",
   "linkBayar": "https://lynk.id/endridigital/ddmjz9d045p9",
   "urutan": 3
@@ -18,7 +18,7 @@
   "deskripsi": "Belajar makin seru dengan permainan yang menarik, membuat anak-anak bisa bermain sambil belajar. Berisi 30 nama hewan. 30 soal pilihan ganda, ada bintang di akhir permainan. Seru untuk anak-anak!",
   "cover": "img/cover/Tebaknamahewan.jpg",
   "preview": [],
-  "harga": "20.000",
+  "harga": "",
   "link": "games/tebak-gambar/tebak-nama-hewan-demo.html",
   "linkBayar": "https://lynk.id/endridigital/o14mrwoyk36m",
   "urutan": 3
@@ -30,7 +30,7 @@
   "deskripsi": "Belajar makin seru dengan permainan yang menarik, membuat anak-anak bisa bermain sambil belajar. Berisi 30 soal, ada bintang di akhir permainan. Seru untuk anak-anak!",
   "cover": "img/cover/menyusunhuruf.jpg",
   "preview": [],
-  "harga": "20.000",
+  "harga": "",
   "link": "games/menyusun-huruf/menyusun-huruf-kendaraan-demo.html",
   "linkBayar": "https://lynk.id/endridigital/6w21kk7v4y1m",
   "urutan": 3
@@ -42,7 +42,7 @@
   "deskripsi": "Sekarang membuat storybook menjadi lebih mudah, dengan bantuan tools ini.\nKelebihan tools ini:\n1. Bisa dipakai offline ( tanpa internet )\n2. Ukuran file yg dihasilkan kecil\n3. Bisa membuat puluhan lembar dengan cepat\n4. Lisensi boleh dijual kembali\n5. Free call untuk bertanya seputar tools",
   "cover": "img/cover/Storybookbuilder.jpg",
   "preview": ["img/preview/satu.jpg", "img/preview/dua.jpg", "img/preview/tiga.jpg", "img/preview/empat.jpg"],
-  "harga": "100.000",
+  "harga": "",
   "linkBayar": "https://lynk.id/endridigital/kpv9njq39l38",
   "urutan": 2
 },
@@ -53,7 +53,7 @@
   "deskripsi": "Sekarang membuat game menjadi lebih mudah, dengan bantuan tools ini.\nKelebihan tools ini:\n1. Bisa dipakai offline ( tanpa internet )\n2. Ukuran file yg dihasilkan kecil\n3. Bisa membuat puluhan game dengan cepat\n4. Lisensi boleh dijual kembali\n5. Free call untuk bertanya seputar tools",
   "cover": "img/cover/gamebuilder.png",
   "preview": [],
-  "harga": "150.000",
+  "harga": "",
   "linkBayar": "https://lynk.id/endridigital/kx9dpd7yl61v",
   "urutan": 2
 },
@@ -64,7 +64,7 @@
   "deskripsi": "Membuat Demo game menjadi lebih mudah, dengan bantuan tools ini.\nKelebihan tools ini:\n1. Bisa dipakai offline ( tanpa internet )\n2. Ukuran file yg dihasilkan kecil\n3. Bisa membuat puluhan game dengan cepat\n4. Lisensi boleh dijual kembali\n5. Free call untuk bertanya seputar tools",
   "cover": "img/cover/coverdemomaker.jpg",
   "preview": [],
-  "harga": "25.000",
+  "harga": "",
   "linkBayar": "https://lynk.id/endridigital/9qyvq869qkq9",
   "urutan": 2
 },
@@ -75,7 +75,7 @@
   "deskripsi": "Isi Paket all in one :\n1. tools:\n2. games\n3. storybook\n4. worksheet\n5. Lisensi boleh dijual kembali\n6. Free call untuk bertanya seputar tools",
   "cover": "img/cover/allinone.jpg",
   "preview": [],
-  "harga": "250.000",
+  "harga": "",
   "linkBayar": "https://lynk.id/endridigital/42we4emw1j2w",
   "urutan": 2
 },
@@ -86,7 +86,7 @@
     "deskripsi": "Digital Storybook, kisah Nabi Ibrahim AS",
     "cover": "img/cover/Ibrahim.jpg",
     "preview": [],
-    "harga": "15.000",
+    "harga": "",
       "link": "games/storybook/nabi-ibrahim-demo.html",
     "linkBayar": "https://lynk.id/endridigital/z3vlm9vm69ew",
     "urutan": 1
@@ -98,7 +98,7 @@
     "deskripsi": "Bermain sambil belajar",
     "cover": "img/cover/mewarnai.png",
     "preview": [],
-    "harga": "10.000",
+    "harga": "",
     "linkBayar": "https://lynk.id/endridigital/y4l26eyz0mj4",
     "urutan": 2
   },
@@ -109,7 +109,7 @@
     "deskripsi": "Bermain sambil belajar",
     "cover": "img/cover/penjumlahan.png",
     "preview": [],
-    "harga": "10.000",
+    "harga": "",
     "linkBayar": "https://lynk.id/endridigital/4kqw7l7zlppm",
     "urutan": 2
   },
@@ -120,7 +120,7 @@
     "deskripsi": "Bermain sambil belajar",
     "cover": "img/cover/perkalian.png",
     "preview": [],
-    "harga": "10.000",
+    "harga": "",
     "linkBayar": "https://lynk.id/endridigital/o0g7j4rgyk1y",
     "urutan": 2
   },
@@ -131,7 +131,7 @@
     "deskripsi": "Bermain sambil belajar",
     "cover": "img/cover/pengurangan.png",
     "preview": [],
-    "harga": "10.000",
+    "harga": "",
     "linkBayar": "https://lynk.id/endridigital/06oklwg14419",
     "urutan": 2
   },
@@ -142,7 +142,7 @@
     "deskripsi": "Bermain sambil belajar",
     "cover": "img/cover/pembagian.png",
     "preview": [],
-    "harga": "10.000",
+    "harga": "",
     "linkBayar": "https://lynk.id/endridigital/5kg2qyr5rv7r",
     "urutan": 2
   }
